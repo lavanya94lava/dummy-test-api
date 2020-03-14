@@ -6,7 +6,7 @@ module.exports.createProduct = async function(req,res){
             name:req.body.name,
             quantity:req.body.quantity
         });
-        return res.json(200,{
+        return res.json( 200,{
             data:{
                 product:product
             }
