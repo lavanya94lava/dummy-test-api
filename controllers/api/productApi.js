@@ -50,3 +50,29 @@ module.exports.destroy = async function (req, res) {
     }
 
 }
+
+module.exports.update_quantity = function(req,res){
+
+    try {
+        Product.findOneAndUpdate({_id:req.params.id},
+            {$set:{quantity:req.params.number}},function(err,product){
+                if(err){
+                    console.log("Cannot update the product");
+                }
+                return res.json(200,{
+                    data:{
+                        product:product,
+                    },
+                    message:"Congtats!!! Product Updated Successfully"
+                });
+
+            }
+            );
+        
+    }catch (err) {
+        console.log("Error!! cant update the product",err);
+        return res.json(500,{
+                message:"Internal server error"
+        });
+    }
+}
