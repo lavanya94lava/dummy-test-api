@@ -29,7 +29,10 @@ module.exports.getProducts = async function(req, res){
     .sort('-createdAt');
  
     return res.json(200,{
-         products:products
+        data:{
+            products:products
+        }
+            
     });
 }
 
